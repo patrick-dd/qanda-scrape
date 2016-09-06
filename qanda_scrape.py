@@ -10,6 +10,7 @@ sys.setrecursionlimit(2500)
 import re
 import requests
 from bs4 import BeautifulSoup
+from __future__ import print_function
 
 class qanda_scraper:
 
@@ -53,9 +54,9 @@ if __name__=="__main__":
     # getting unique links
     html_links = list(set(html_links))
     transcript = ''
-    print 'Downloading transcripts'
+    print( 'Downloading transcripts' )
     for link in html_links:
-        print 'Downloading transcript from website ' + link.strip()
+        print('Downloading transcript from website ' + link.strip())
         qanda = qanda_scraper(link.strip(), filename)
         qanda.download_page()
         qanda.transcript_cleaner()
@@ -64,4 +65,4 @@ if __name__=="__main__":
     f = open(filename, 'w')
     f.write(transcript)
     f.close()
-    print 'Transcript saved'
+    print('Transcript saved')
