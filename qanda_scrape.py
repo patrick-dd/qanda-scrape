@@ -5,12 +5,12 @@ A script to scrape QandA transcripts. Because you're a sucker for punishment.
 patrick-dd.github.io
 twitter.com/patrickdoupe
 """
+from __future__ import print_function
 import sys
 sys.setrecursionlimit(2500)
 import re
 import requests
 from bs4 import BeautifulSoup
-from __future__ import print_function
 
 class qanda_scraper:
 

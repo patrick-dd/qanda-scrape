@@ -1,6 +1,6 @@
-import requests
-from bs4 import BeautifulSoup
 from __future__ import print_function
+from bs4 import BeautifulSoup
+import requests
 
 html_link = 'http://www.abc.net.au/tv/qanda/past-programs-by-date.htm'
 
