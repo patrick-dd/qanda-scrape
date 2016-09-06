@@ -1,6 +1,6 @@
 import requests
 from bs4 import BeautifulSoup
-
+from __future__ import print_function
 
 html_link = 'http://www.abc.net.au/tv/qanda/past-programs-by-date.htm'
 
@@ -15,7 +15,7 @@ for link in soup.find_all('a'):
         f.write(', ')
 
 f.close()
-print 'Websites scraped!'
+print( 'Websites scraped!' )
 
 
 
