@@ -57,7 +57,7 @@ if __name__=="__main__":
     html_links = list(set(html_links))
     transcript = ''
     print( 'Downloading transcripts' )
-    for link in html_links[0:1]:
+    for link in html_links:
         print('Downloading transcript from website ' + link.strip())
         qanda = qanda_scraper(link.strip(), filename)
         qanda.download_page()
