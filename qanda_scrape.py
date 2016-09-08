@@ -42,7 +42,9 @@ class qanda_scraper:
             edited_transcript: string
         """
         cleanr = re.compile('<.*?>')
-        self.transcript = re.sub(cleanr, '', self.transcript)
+        self.transcript = re.sub(cleanr, ' ', self.transcript)
+        self.transcript = re.sub(r'[\x92]', "\'", self.transcript)
+        self.transcript = re.sub(r'\&amp;', '&', self.transcript)
         self.transcript = self.transcript.replace("\r\n\t","")
         return 0 
 
@@ -55,7 +57,7 @@ if __name__=="__main__":
     html_links = list(set(html_links))
     transcript = ''
     print( 'Downloading transcripts' )
-    for link in html_links:
+    for link in html_links[0:1]:
         print('Downloading transcript from website ' + link.strip())
         qanda = qanda_scraper(link.strip(), filename)
         qanda.download_page()
